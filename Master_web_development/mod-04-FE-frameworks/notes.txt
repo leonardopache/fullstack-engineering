@@ -1,0 +1,83 @@
+Documentación oficial React.js
+https://reactjs.org/docs/getting-started.html
+2.Documentación oficial Create React App
+https://create-react-app.dev
+3.Repositorio librería axios
+https://github.com/axios/axios
+4.Async/await
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+5.Github Pages
+https://pages.github.com
+6.React Router
+https://reactrouter.com/web/guides/quick-star
+
+7.Add on to reactjs chrome
+https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en
+
+-- Create react project using npx
+npx create-react-app --use-npm  react-intro
+
+-- Components in separated folder
+-- Data json in separated folder
+
+-- Tree of components 
+APP -> navbar
+    -> searchbar
+    -> seasonfilter
+    -> episodeList   -> {episode,...}
+
+
+--converting array of data in components
+    - from APP()
+        $ import var from "json_file.json"
+        var pass thru component 
+        $ props ={var}
+    
+    - to component
+        receive props and get var from it 
+        $ function abc(props)
+        $ const { var } props
+        iterate array and convert to array of component
+        $ const varComponent = var.map(v, index => {
+            return <component attribute1={v.attribute1} key={index} />
+        })
+        receive data in component
+        $ function ({attribute1, ...})
+
+--remove html tag with dangerousSetInnerHTML 
+    dangerousSetInnerHTML={{ __html: attribute1}}
+    
+Liberia nativa 
+    functio fetch 
+    
+Cliente HTTP Axios 
+    axios.post(url, body, {parameters}).then(status.200).catch(failure)
+    
+    axios.get('url', {
+        withCredentials: true, headers: {
+            "Content-Type": "application/json"
+        }
+    })
+        .then(response => {
+            console.log(response);
+        })
+        .catch(err => {
+            console.log(err.response)
+        })
+    }
+
+Hooks and Router
+- useState
+    const [var, function] = useState(initial_value)
+
+- useEffect
+    useEffect(() => {
+        ..do some action
+    },[array_dependency])
+
+Router
+npm install react-router-dom
+
+<ul>
+    {list.map(l => <li >{l}</li>)}
+</ul>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyTwitter Feed</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="assets/css/stylesheets.css">
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    
+    <nav class="navbar navbar-light bg-light">
+        <div class="ps-4">
+            <a class="navbar-brand" href="about.html">
+                <i class="fab fa-phoenix-framework">MyTwitter</i>
+            </a>
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-home"></i>
+            </a>
+        </div>
+        <div class="pe-4">
+            <a class="navbar-brand" href="login.html">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
+    </nav>
+    <section>
+        <div class="container border border-light form">
+            <div class="row text-center">
+                <div class="col-12 pb-5">
+                    <form>
+                        <div class="form-floating pb-2">
+                            <input type="text" class="form-control" id="input-name">
+                            <label for="input-name" class="form-label" >Name:</label>
+                        </div>
+                        <div class="form-floating pb-2">
+                            <input type="text" class="form-control" id="input-nick-name">
+                            <label for="input-nick-name" class="form-label">@nick:</label>
+                        </div>
+                        <div class="form-floating pb-2">
+                            <textarea class="form-control" id="input-comment" style="height: 100px"></textarea>
+                            <label for="input-comment" class="form-label">Comments:</label>
+                        </div>
+                        <div class="form-floating pb-2">
+                            <input type="file" class="form-control" id="input-img">
+                            <label for="input-img" class="form-label">Imagen:</label>
+                        </div>
+                        <button id="btnSubmit" type="submit" class="btn btn-primary">Submit</button>
+                        <button id="btnReset" type="reset" class="btn btn-warning">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container-fluid">
+        <div id="div-feed" class="row text-center">
+            <div id="div-empty" style="display: none;">
+                <i class="fas fa-sad-tear m-4"></i>
+            </div>
+            <div class="col- col-sm-12 col-md-6 col-lg-3 col-xl-2 d-block">
+                <div class="c-card">
+                    <img src="https://s18.postimg.cc/4zap9fhmx/twitter.png" alt="" class="c-card-social-img" />
+                    <span class="c-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                        tempor
+                        incididunt ut labore et dolore magna aliqua. #lorem</span>
+                    <span class="c-card-name">Leonardo</span>
+                    <span class="c-card-handle">@LeoMarques</span>
+                </div>
+            </div>
+            <div class="col- col-sm-12 col-md-6 col-lg-3 col-xl-2 d-block">
+                <div class="c-card">
+                    <img src="https://s18.postimg.cc/4zap9fhmx/twitter.png" alt="" class="c-card-social-img" />
+                    <img src="https://picsum.photos/800/600" alt="" class="c-card-main-img" />
+                    <span class="c-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. #lorem</span>
+                    <span class="c-card-name">ThreePoints</span>
+                    <span class="c-card-handle">@3points</span>
+                </div>
+            </div>
+            <div class="col- col-sm-12 col-md-6 col-lg-3 col-xl-2 d-block">
+                <div class="c-card">
+                    <img src="https://s18.postimg.cc/4zap9fhmx/twitter.png" alt="" class="c-card-social-img" />
+                    <span class="c-card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                        tempor
+                        incididunt ut labore et dolore magna aliqua. #lorem</span>
+                    <span class="c-card-name">Mister Lorem</span>
+                    <span class="c-card-handle">@Mlorem</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-light text-muted p-4">
+        <div>
+            <p style="margin-bottom: 0;">Master in FullStack Web Development</p>
+            <p style="margin-bottom: 0;">Leonardo Marques Pache</p>
+        </div>
+    </footer>
+    <script src="assets/js/main.js"></script> 
+</body>
+</html>

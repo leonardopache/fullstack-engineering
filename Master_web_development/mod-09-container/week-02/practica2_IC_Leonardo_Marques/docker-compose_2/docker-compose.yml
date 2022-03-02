@@ -1,0 +1,40 @@
+version: "3"
+services:
+  my-postgres:
+    image: postgres:9.6.2
+    container_name: my-postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=mypassword
+    networks:
+      - drupal-network
+  my-dupral:
+    depends_on:
+      - my-postgres
+    image: drupal:8-apache
+    ports:
+      - "32400:80"
+    volumes:
+      - drupal-modules:/var/www/html/modules
+      - drupal-profiles:/var/www/html/profiles
+      - drupal-sites:/var/www/html/sites
+      - drupal-themes:/var/www/html/themes
+    networks:
+      - drupal-network
+networks:
+  drupal-network:
+    name: dupral-network
+volumes:
+  pgdata:
+    name: pgdata
+  drupal-modules:
+    name: drupal-modules
+  drupal-profiles:
+    name: drupal-profiles
+  drupal-sites:
+    name: drupal-sites
+  drupal-themes:
+    name: drupal-themes

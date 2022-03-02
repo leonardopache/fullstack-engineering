@@ -1,0 +1,49 @@
+{
+    "postList" : [
+      {
+        "createAt": "31/12/2020",
+        "author": "@Smith",
+        "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "hashtags": "#lorem, #ipsum, #dolor",
+        "image": "https://picsum.photos/800/600/?random=0",
+        "comments": 23,
+        "like": 0
+      },
+      {
+        "createAt": "31/12/2020",
+        "author": "@leo",
+        "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "hashtags": "#lorem, #ipsum, #dolor",
+        "image": "https://picsum.photos/800/600/?random=1",
+        "comments": 10,
+        "like": 0
+      },
+      {
+        "createAt": "31/12/2020",
+        "author": "@pache",
+        "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "hashtags": "#lorem, #ipsum, #dolor",
+        "image": "https://picsum.photos/800/600/?random=2",
+        "comments": 1,
+        "like": 0
+      },
+      {
+        "createAt": "31/12/2020",
+        "author": "@leopache",
+        "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "hashtags": "#lorem, #ipsum, #dolor",
+        "image": "https://picsum.photos/800/600/?random=3",
+        "comments": 100,
+        "like": 0
+      },
+      {
+        "createAt": "31/12/2020",
+        "author": "@marques",
+        "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor diff incididunt ut labore et dolore magna aliqua.",
+        "hashtags": "#lorem, #ipsum, #dolor",
+        "image": "https://picsum.photos/800/600/?random=4",
+        "comments": 7,
+        "like": 0
+      }
+    ]
+  }

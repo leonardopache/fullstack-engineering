@@ -1,0 +1,424 @@
+AWSTemplateFormatVersion: 2010-09-09
+Metadata:
+  'AWS::CloudFormation::Designer':
+    b36e86a7-46e0-44a0-be22-c8791a012393:
+      size:
+        width: 470
+        height: 510
+      position:
+        x: 110
+        'y': 340
+      z: 1
+      embeds:
+        - 6575ad66-3365-49ed-86c5-0bffc4a399fe
+    3717fb05-b2ec-46ef-a9ca-5a61433bc9c2:
+      size:
+        width: 350
+        height: 170
+      position:
+        x: 160
+        'y': 410
+      z: 3
+      parent: 6575ad66-3365-49ed-86c5-0bffc4a399fe
+      embeds:
+        - 9c507756-5e07-4a48-aff1-3bd1232d8b16
+        - efb1e24a-c0ab-4a1c-b79c-2f2705df82f3
+        - a00e3c63-edb3-4142-96f1-21c98b2941a0
+      iscontainedinside:
+        - b36e86a7-46e0-44a0-be22-c8791a012393
+      dependson:
+        - b36e86a7-46e0-44a0-be22-c8791a012393
+    ff382750-bd38-4068-9ed2-d4517cdf1b4f:
+      size:
+        width: 340
+        height: 140
+      position:
+        x: 160
+        'y': 640
+      z: 3
+      parent: 6575ad66-3365-49ed-86c5-0bffc4a399fe
+      embeds:
+        - d146f5ff-5d8d-45b1-8985-8b194fbdf341
+        - 66f00e34-51ff-4cbc-a6e2-2b6b9f907c1b
+        - cf922a89-3fb4-46b5-a61b-d9da8ebdf4b6
+      iscontainedinside:
+        - b36e86a7-46e0-44a0-be22-c8791a012393
+        - b36e86a7-46e0-44a0-be22-c8791a012393
+      dependson:
+        - b36e86a7-46e0-44a0-be22-c8791a012393
+    8fd3e094-106d-4447-8973-bc9994430ca6:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 640
+        'y': 350
+      z: 1
+      embeds: []
+      dependson:
+        - b36e86a7-46e0-44a0-be22-c8791a012393
+    cf922a89-3fb4-46b5-a61b-d9da8ebdf4b6:
+      size:
+        width: 80
+        height: 80
+      position:
+        x: 410
+        'y': 680
+      z: 4
+      parent: ff382750-bd38-4068-9ed2-d4517cdf1b4f
+      embeds: []
+    efb1e24a-c0ab-4a1c-b79c-2f2705df82f3:
+      size:
+        width: 80
+        height: 110
+      position:
+        x: 360
+        'y': 440
+      z: 4
+      parent: 3717fb05-b2ec-46ef-a9ca-5a61433bc9c2
+      embeds:
+        - 3d485414-d506-4649-893b-f2d648df7722
+    692fefd0-6405-4053-8834-3f1021aa2507:
+      source:
+        id: b36e86a7-46e0-44a0-be22-c8791a012393
+      target:
+        id: 8fd3e094-106d-4447-8973-bc9994430ca6
+      z: 1
+    3d485414-d506-4649-893b-f2d648df7722:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 370
+        'y': 470
+      z: 5
+      parent: efb1e24a-c0ab-4a1c-b79c-2f2705df82f3
+      embeds: []
+      isassociatedwith:
+        - 8fd3e094-106d-4447-8973-bc9994430ca6
+      iscontainedinside:
+        - efb1e24a-c0ab-4a1c-b79c-2f2705df82f3
+        - efb1e24a-c0ab-4a1c-b79c-2f2705df82f3
+        - efb1e24a-c0ab-4a1c-b79c-2f2705df82f3
+        - efb1e24a-c0ab-4a1c-b79c-2f2705df82f3
+        - efb1e24a-c0ab-4a1c-b79c-2f2705df82f3
+        - efb1e24a-c0ab-4a1c-b79c-2f2705df82f3
+        - efb1e24a-c0ab-4a1c-b79c-2f2705df82f3
+        - efb1e24a-c0ab-4a1c-b79c-2f2705df82f3
+        - efb1e24a-c0ab-4a1c-b79c-2f2705df82f3
+        - efb1e24a-c0ab-4a1c-b79c-2f2705df82f3
+        - efb1e24a-c0ab-4a1c-b79c-2f2705df82f3
+        - efb1e24a-c0ab-4a1c-b79c-2f2705df82f3
+        - efb1e24a-c0ab-4a1c-b79c-2f2705df82f3
+        - efb1e24a-c0ab-4a1c-b79c-2f2705df82f3
+        - efb1e24a-c0ab-4a1c-b79c-2f2705df82f3
+        - efb1e24a-c0ab-4a1c-b79c-2f2705df82f3
+        - efb1e24a-c0ab-4a1c-b79c-2f2705df82f3
+        - efb1e24a-c0ab-4a1c-b79c-2f2705df82f3
+      dependson:
+        - 692fefd0-6405-4053-8834-3f1021aa2507
+    9c507756-5e07-4a48-aff1-3bd1232d8b16:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 180
+        'y': 470
+      z: 4
+      parent: 3717fb05-b2ec-46ef-a9ca-5a61433bc9c2
+      embeds: []
+      iscontainedinside:
+        - b36e86a7-46e0-44a0-be22-c8791a012393
+    d146f5ff-5d8d-45b1-8985-8b194fbdf341:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 180
+        'y': 690
+      z: 4
+      parent: ff382750-bd38-4068-9ed2-d4517cdf1b4f
+      embeds: []
+      iscontainedinside:
+        - b36e86a7-46e0-44a0-be22-c8791a012393
+    a00e3c63-edb3-4142-96f1-21c98b2941a0:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 270
+        'y': 460
+      z: 4
+      parent: 3717fb05-b2ec-46ef-a9ca-5a61433bc9c2
+      embeds: []
+      isassociatedwith:
+        - 9c507756-5e07-4a48-aff1-3bd1232d8b16
+      iscontainedinside:
+        - 3717fb05-b2ec-46ef-a9ca-5a61433bc9c2
+        - 3717fb05-b2ec-46ef-a9ca-5a61433bc9c2
+        - 3717fb05-b2ec-46ef-a9ca-5a61433bc9c2
+        - 3717fb05-b2ec-46ef-a9ca-5a61433bc9c2
+        - 3717fb05-b2ec-46ef-a9ca-5a61433bc9c2
+        - 3717fb05-b2ec-46ef-a9ca-5a61433bc9c2
+        - 3717fb05-b2ec-46ef-a9ca-5a61433bc9c2
+        - 3717fb05-b2ec-46ef-a9ca-5a61433bc9c2
+        - 3717fb05-b2ec-46ef-a9ca-5a61433bc9c2
+        - 3717fb05-b2ec-46ef-a9ca-5a61433bc9c2
+        - 3717fb05-b2ec-46ef-a9ca-5a61433bc9c2
+        - 3717fb05-b2ec-46ef-a9ca-5a61433bc9c2
+    66f00e34-51ff-4cbc-a6e2-2b6b9f907c1b:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 300
+        'y': 690
+      z: 4
+      parent: ff382750-bd38-4068-9ed2-d4517cdf1b4f
+      embeds: []
+      isassociatedwith:
+        - d146f5ff-5d8d-45b1-8985-8b194fbdf341
+        - 4cf1f37a-5fd6-4287-8b2e-2de472ab41a2
+    6575ad66-3365-49ed-86c5-0bffc4a399fe:
+      size:
+        width: 430
+        height: 470
+      position:
+        x: 120
+        'y': 370
+      z: 2
+      parent: b36e86a7-46e0-44a0-be22-c8791a012393
+      embeds:
+        - 3717fb05-b2ec-46ef-a9ca-5a61433bc9c2
+        - ff382750-bd38-4068-9ed2-d4517cdf1b4f
+Resources:
+  vpc03:
+    Type: 'AWS::EC2::VPC'
+    Properties:
+      CidrBlock: !Ref VpcCIDR
+      Tags:
+        - Key: Name
+          Value: vpc-act03
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: b36e86a7-46e0-44a0-be22-c8791a012393
+  igACT03:
+    Type: 'AWS::EC2::InternetGateway'
+    Properties: {}
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 8fd3e094-106d-4447-8973-bc9994430ca6
+  igAttachment:
+    Type: 'AWS::EC2::VPCGatewayAttachment'
+    Properties:
+      InternetGatewayId: !Ref igACT03
+      VpcId: !Ref vpc03
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 692fefd0-6405-4053-8834-3f1021aa2507
+  snPublic03:
+    Type: 'AWS::EC2::Subnet'
+    Properties:
+      VpcId: !Ref vpc03
+      CidrBlock: !Ref PublicSubnetCIDR
+      AvailabilityZone: 'eu-west-3a'
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 3717fb05-b2ec-46ef-a9ca-5a61433bc9c2
+    DependsOn:
+      - vpc03
+  snPrivate03:
+    Type: 'AWS::EC2::Subnet'
+    Properties:
+      CidrBlock: !Ref PrivateSubnetCIDR
+      VpcId: !Ref vpc03
+      AvailabilityZone: 'eu-west-3b'
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: ff382750-bd38-4068-9ed2-d4517cdf1b4f
+    DependsOn:
+      - vpc03
+  rtPrivate:
+    Type: 'AWS::EC2::RouteTable'
+    Properties:
+      VpcId: !Ref vpc03
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: cf922a89-3fb4-46b5-a61b-d9da8ebdf4b6
+  rtPublic:
+    Type: 'AWS::EC2::RouteTable'
+    Properties:
+      VpcId: !Ref vpc03
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: efb1e24a-c0ab-4a1c-b79c-2f2705df82f3
+  routePublic:
+    Type: 'AWS::EC2::Route'
+    DependsOn: igAttachment
+    Properties:
+      RouteTableId: !Ref rtPublic
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref igACT03
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 3d485414-d506-4649-893b-f2d648df7722
+  publicSubnetRouteTableAssociation:
+    Type: 'AWS::EC2::SubnetRouteTableAssociation'
+    Properties:
+      RouteTableId: !Ref rtPublic
+      SubnetId: !Ref snPublic03
+  dbSubnetGroup:
+    Type: "AWS::RDS::DBSubnetGroup"
+    Properties:
+      DBSubnetGroupDescription: "Subnet group for DB MySQL"
+      SubnetIds:
+        - !Ref snPublic03
+        - !Ref snPrivate03
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 6575ad66-3365-49ed-86c5-0bffc4a399fe
+  sgWebapp:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      GroupDescription: Allow SSH and HTTP connections to EC2 instance
+      Tags:
+        - Key: Name
+          Value: sg-webapp
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+      VpcId: !Ref vpc03
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 9c507756-5e07-4a48-aff1-3bd1232d8b16
+  sgDB:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      GroupDescription: Allow connections only from Webserver
+      Tags:
+        - Key: Name
+          Value: sg-db
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 3306
+          ToPort: 3306
+          SourceSecurityGroupId: !GetAtt sgWebapp.GroupId
+      VpcId: !Ref vpc03
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: d146f5ff-5d8d-45b1-8985-8b194fbdf341
+  ec2InstanceWebserver:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      InstanceType: t2.micro
+      KeyName: !Ref KeyName
+      ImageId: !Ref LatestAmiId
+      NetworkInterfaces:
+        - AssociatePublicIpAddress: true
+          SubnetId: !Ref snPublic03
+          DeviceIndex: '0'
+          GroupSet:
+            - !Ref sgWebapp
+      Tags:
+        - Key: Name
+          Value: Webserver
+      UserData:
+        'Fn::Base64': |
+          #!/bin/bash dbadmin-pwd
+          yum -y install httpd php mysql php-mysql
+              
+          case $(ps -p 1 -o comm | tail -1) in 
+          systemd) systemctl enable --now httpd ;;
+          init) chkconfig httpd on; service httpd start ;;
+          *) echo "Error starting httpd (OS not using init or systemd)." 2>&1
+          esac
+              
+          if [ ! -f /var/www/html/bootcamp-app.tar.gz ]; then
+          cd /var/www/html
+          wget https://s3.amazonaws.com/immersionday-labs/bootcamp-app.tar
+          tar xvf bootcamp-app.tar
+          chown apache:root /var/www/html/rds.conf.php
+          fi
+          yum -y update
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: a00e3c63-edb3-4142-96f1-21c98b2941a0
+  MyDB:
+    Type: 'AWS::RDS::DBInstance'
+    Properties:
+      DBInstanceIdentifier: !Ref DBInstanceID
+      DBName: !Ref DatabaseName
+      DBInstanceClass: db.t2.micro
+      AllocatedStorage: 20
+      Engine: MySQL
+      EngineVersion: 5.7.34
+      MasterUsername: !Ref MasterUsername
+      MasterUserPassword: !Ref MasterPassword
+      VPCSecurityGroups:
+        - Fn::GetAtt: [sgDB,GroupId]
+      DBSubnetGroupName: !Ref dbSubnetGroup
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 66f00e34-51ff-4cbc-a6e2-2b6b9f907c1b
+Parameters:
+  VpcCIDR:
+    Description: Please enter the IP range (CIDR notation) for this VPC
+    Type: String
+    Default: 10.0.0.0/16
+  PublicSubnetCIDR:
+    Description: >-
+      Please enter the IP range (CIDR notation) for the public subnet in the
+      first Availability Zone
+    Type: String
+    Default: 10.0.0.0/24
+  PrivateSubnetCIDR:
+    Description: >-
+      Please enter the IP range (CIDR notation) for the private subnet in the
+      first Availability Zone
+    Type: String
+    Default: 10.0.2.0/23
+  KeyName:
+    Description: Name of an existing EC2 KeyPair to enable SSH access
+    Type: 'AWS::EC2::KeyPair::KeyName'
+    ConstraintDescription: Must be the name of an existing EC2 KeyPair.
+  LatestAmiId:
+    Type: 'AWS::SSM::Parameter::Value<String>'
+    Default: /aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-ebs
+  DBInstanceID:
+    Default: phonebookdb
+    Description: RDS DB instance
+    Type: String
+    MinLength: '1'
+    MaxLength: '63'
+    AllowedPattern: '[a-zA-Z][a-zA-Z0-9]*'
+    ConstraintDescription: >-
+      Must begin with a letter and must not end with a hyphen or contain two
+      consecutive hyphens.
+  DatabaseName:
+    Default: phonebook
+    Description: Database name
+    Type: String
+    MinLength: '1'
+    MaxLength: '64'
+    AllowedPattern: '[a-zA-Z][a-zA-Z0-9]*'
+    ConstraintDescription: Must begin with a letter and contain only alphanumeric characters.
+  MasterUsername:
+    Description: Username for MySQL database access
+    Type: String
+    MinLength: '1'
+    MaxLength: '16'
+    AllowedPattern: '[a-zA-Z][a-zA-Z0-9]*'
+    ConstraintDescription: Must begin with a letter and contain only alphanumeric characters.
+  MasterPassword:
+    Description: Password for MySQL database access
+    Type: String
+    MinLength: '8'
+    MaxLength: '41'
+    AllowedPattern: '[a-zA-Z0-9]*'
+    ConstraintDescription: Must contain only alphanumeric characters.

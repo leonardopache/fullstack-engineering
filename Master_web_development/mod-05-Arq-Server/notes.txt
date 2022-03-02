@@ -1,0 +1,14 @@
+API to create a tunel between localhost to a cloud endpoint
+* ngrok 
+INSTALL -> npm i ngrok 
+USE -> node_modules/.bin/ngrok http 8000
+
+
+RUM APP IN MODE hotdeploy 
+-> package.json 
+Scripts values:
+start -> "node app.js"
+dev -> "nodemon app.js"
+
+npm run dev 
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <title>my card inject</title>
+</head>
+<body>
+   <div class="container">
+        <div class="row pt-5">
+            <div class="col-6">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img" src="https://picsum.photos/200">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">ust add your desired image size (width & height) after our URL, and you'll get</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <form>
+                    <div class="mb-3">
+                        <label for="input-title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="input-title">
+                    </div>
+                    <div class="mb-3">
+                        <label for="input-desc" class="form-label">Description</label>
+                        <input type="text" class="form-control" id="input-desc">
+                    </div>
+                    <div class="mb-3">
+                        <label for="input-img" class="form-label">Imagen</label>
+                        <input type="text" class="form-control" id="input-img">
+                    </div>
+                    <button id="btnSubmit" type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+   </div>
+   <script src="assets/js/main.js"></script> 
+</body>
+</html>

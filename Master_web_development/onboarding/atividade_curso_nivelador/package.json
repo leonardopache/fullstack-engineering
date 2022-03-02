@@ -1,0 +1,15 @@
+{
+    "name": "cowsay_master_fs",
+    "version": "1.0.0",
+    "description": "Cowsay running",
+    "author": "Leonardo Marques Pache ",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "dependencies": {
+        "cowsay": "^1.1.9",
+        "express": "^4.17.1",
+        "fs": "*"
+    }
+}
