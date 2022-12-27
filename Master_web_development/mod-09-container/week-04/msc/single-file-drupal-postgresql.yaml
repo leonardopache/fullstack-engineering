@@ -1,0 +1,191 @@
+---
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: sample-storage
+provisioner: kubernetes.io/no-provisioner
+allowVolumeExpansion: true
+mountOptions:
+- debug
+volumeBindingMode: Immediate
+# ---
+# apiVersion: v1
+# kind: PersistentVolume
+# metadata:
+#   name: local-volume-1
+#   labels:
+#     type: local
+# spec:
+#   capacity:
+#     storage: 8Gi
+#   accessModes:
+#     - ReadWriteOnce
+#   hostPath:
+#     path: /tmp/data/pv-1
+#   persistentVolumeReclaimPolicy: Recycle
+#   storageClassName: sample-storage
+# ---
+# apiVersion: v1
+# kind: PersistentVolume
+# metadata:
+#   name: local-volume-2
+#   labels:
+#     type: local
+# spec:
+#   capacity:
+#     storage: 8Gi
+#   accessModes:
+#     - ReadWriteOnce
+#   hostPath:
+#     path: /tmp/data/pv-2
+#   persistentVolumeReclaimPolicy: Recycle
+#   storageClassName: sample-storage
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: postgre-secret
+  labels:
+    app: pratica4
+type: Opaque
+data:
+  db_user: ZGJfdXNlcg==
+  db_pwd: ZHJ1cGFsX3B3ZF9wb3N0Z3Jlc3Fs
+#db_user
+#drupal_pwd_postgresql
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgresql
+  labels:
+    app: drupal
+spec:
+  ports:
+    - port: 5432
+  selector:
+    app: drupal
+    tier: postgreSQL
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgres-claim
+  labels:
+    app: drupal
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 8Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgresql
+  labels:
+    app: drupal
+spec:
+  selector:
+    matchLabels:
+      app: drupal
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: drupal
+        tier: postgreSQL
+    spec:
+      containers:
+        - image: postgres:latest
+          name: postgresql
+          env:
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgre-secret
+                  key: db_user
+            - name: POSTGRES_DB
+              value: drupal_production
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgre-secret
+                  key: db_pwd
+          ports:
+            - containerPort: 5432
+              name: postgresql
+          volumeMounts:
+            - name: postgresql
+              mountPath: /var/lib/postgresql/data
+      volumes:
+        - name: postgresql
+          persistentVolumeClaim:
+            claimName: postgres-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: drupal
+  labels:
+    app: drupal
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 30081
+  selector:
+    app: drupal
+    tier: frontend
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: drupal-claim
+  labels:
+    app: drupal
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: drupal
+  labels:
+    app: drupal
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: drupal
+  template:
+    metadata:
+      labels:
+        app: drupal
+        tier: frontend
+    spec:
+      containers:
+        - image: drupal:latest
+          name: drupal
+          ports:
+            - containerPort: 30081
+              name: drupal
+          volumeMounts:
+            - name: drupal
+              mountPath: /var/www/html/modules
+              subPath: modules
+            - name: drupal
+              mountPath: /var/www/html/profiles
+              subPath: profiles
+            - name: drupal
+              mountPath: /var/www/html/themes
+              subPath: themes
+      volumes:
+        - name: drupal
+          persistentVolumeClaim:
+            claimName: drupal-claim

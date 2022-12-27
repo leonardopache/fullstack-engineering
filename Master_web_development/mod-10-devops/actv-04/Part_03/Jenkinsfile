@@ -1,0 +1,65 @@
+@Library('threepoints-sharedlib') _
+
+pipeline {
+    agent any
+    environment {
+        PASS_QUALITY_GATE = 'True'
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                cleanWs()
+                echo 'Checking out'
+                git credentialsId: 'e9b5c362-f040-4029-b41f-7e0b64015e87', url: 'git@localhost:threepoints/docker-vulnerable-dvwa.git'
+            }
+        }
+        stage('Pruebas SAST Paralles') {
+            parallel {
+                stage('Test One') {
+                    steps {
+                        script {
+                            if (PASS_QUALITY_GATE == 'True') {
+                                echo 'Pasa las pruebas de SonarQube'
+                            } else {
+                                echo 'No pasa las pruebas de SonarQube'
+                                //sh 'make fail'
+                                currentBuild.result = 'FAILURE'
+                            }
+                        }
+                    }
+                }
+                stage('Test Two') {
+                    steps {
+                        echo '${WORKSPACE}'
+                    }
+                }
+            }
+        }
+        stage('Configurar archivo'){
+            steps{
+                withCredentials([usernamePassword(credentialsId: 'Credentials_Threepoints', 
+                                                    passwordVariable: 'password', 
+                                                    usernameVariable: 'user')]) {
+                    writeFile file: 'credentials.ini', 
+                    text: """
+[credentials]
+user=${user}
+password=${password}
+                    """
+                    sh('cat credentials.ini')
+                }
+            }
+        }
+        stage('Build'){
+            steps{
+                sh 'docker build -t dvwa .'
+            }
+        }
+        stage('SharedLib'){
+            steps{
+                echo "Ejecutando con parametros quality_gate == false y abort_pipeline == true"
+                sonarAnalysis(false, true)
+            }
+        }
+    }
+}

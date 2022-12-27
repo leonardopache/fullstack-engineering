@@ -1,0 +1,193 @@
+---
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: local-storage
+provisioner: kubernetes.io/no-provisioner
+allowVolumeExpansion: true
+mountOptions:
+- debug
+volumeBindingMode: Immediate
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: drupal-pv
+  labels:
+    type: local
+spec:
+  capacity:
+    storage: 8Gi
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  hostPath:
+    path: /tmp/hostpath-provisioner
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: postgre-pv
+  labels:
+    type: local
+spec:
+  capacity:
+    storage: 8Gi
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  hostPath:
+    path: /tmp/hostpath-provisioner
+--- 
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata: 
+  name: drupal-pvc
+  labels:
+    app: pratica4
+spec: 
+  accessModes: 
+  - ReadWriteOnce
+  storageClassName: local-storage
+  resources: 
+    requests: 
+      storage: 2Gi
+--- 
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata: 
+  name: postgresql-pvc
+  labels:
+    app: pratica4
+spec: 
+  accessModes: 
+  - ReadWriteOnce
+  storageClassName: local-storage
+  resources: 
+    requests: 
+      storage: 8Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgresql-ci
+  labels:
+    app: pratica4
+spec:
+  ports:
+    - port: 5432
+  selector:
+    app: pratica4
+    tier: DB  
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: postgre-secret
+  labels:
+    app: pratica4
+type: Opaque
+data:
+  db_user: ZHJ1cGFs
+  db_pwd: ZHJ1cGFs
+#drupal
+#drupal
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: drupal-postgre
+  labels:
+    app: pratica4
+spec:
+  selector:
+    matchLabels:
+      app: pratica4
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pratica4
+        tier: DB
+    spec:
+      containers:
+      - image: postgres:latest
+        name: postgresql
+        env:
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: postgre-secret
+              key: db_user
+        - name: POSTGRES_DB
+          value: drupal
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgre-secret
+              key: db_pwd
+        ports:
+        - containerPort: 5432
+          name: postgresql
+        volumeMounts:
+        - name: postgre-ps
+          mountPath: /var/lib/postgresql/data
+      volumes:
+      - name: postgre-ps
+        persistentVolumeClaim:
+          claimName: postgresql-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: drupal-service-np
+  labels:
+    app: pratica4
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      nodePort: 30080
+  selector:
+    app: pratica4
+    tier: FE
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: drupal
+  labels:
+    app: pratica4
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pratica4
+  template:
+    metadata:
+      labels:
+        app: pratica4
+        tier: FE
+    spec:
+      containers:
+      - image: drupal:latest
+        name: drupal
+        ports:
+        - containerPort: 30080
+          name: drupal
+        volumeMounts:
+        - name: drupal-ps
+          mountPath: /var/www/html/modules
+          subPath: modules
+        - name: drupal-ps
+          mountPath: /var/www/html/profiles
+          subPath: profiles
+        - name: drupal-ps
+          mountPath: /var/www/html/themes
+          subPath: themes
+      volumes:
+      - name: drupal-ps
+        persistentVolumeClaim:
+          claimName: drupal-pvc
